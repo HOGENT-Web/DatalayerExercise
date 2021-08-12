@@ -5,9 +5,12 @@
   "license": "UNLICENSED",
   "type": "commonjs",
   "scripts": {
-    "start:manual:examples": "node ./src/manual/examples.js",
-    "start:manual:exercises": "node ./src/manual/exercises.js",
-    "start:manual:solution": "node ./src/manual/solution.js"
+    "manual:examples": "node ./src/manual/examples.js",
+    "manual:exercises": "node ./src/manual/exercises.js",
+    "manual:solution": "node ./src/manual/solution.js",
+    "querybuilder:examples": "node ./src/querybuilder/examples.js",
+    "querybuilder:exercises": "node ./src/querybuilder/exercises.js",
+    "querybuilder:solution": "node ./src/querybuilder/solution.js"
   },
   "dependencies": {
     "knex": "^0.21.21",

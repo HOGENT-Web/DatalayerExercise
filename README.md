@@ -28,5 +28,6 @@ You should go through the exercises in this order:
 
 1. manual
 2. querybuilder
+2. relational-querybuilder
 3. orm
 
