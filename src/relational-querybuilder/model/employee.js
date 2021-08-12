@@ -28,6 +28,15 @@ class Employee extends Model {
   /** @type {Title[]} */
   titles;
 
+  /** @type {Salary[]} */
+  salaries;
+
+  /** @type {Department[]} */
+  departments;
+
+  /** @type {Department[]} */
+  managerOf;
+
   static get tableName() {
     return 'employees';
   }

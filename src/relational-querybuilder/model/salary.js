@@ -5,7 +5,7 @@ class Salary extends Model {
   /** @type {number} */
   emp_no;
 
-  /** @type {string} */
+  /** @type {number} */
   salary;
 
   /** @type {Date} */

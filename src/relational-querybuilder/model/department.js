@@ -8,6 +8,12 @@ class Department extends Model {
   /** @type {string} */
   dept_name;
 
+  /** @type {Employee[]} */
+  employees;
+
+  /** @type {Employee[]} */
+  managers;
+
   static get tableName() {
     return 'departments';
   }
