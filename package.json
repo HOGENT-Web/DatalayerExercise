@@ -1,0 +1,17 @@
+{
+  "name": "datalayer-exercise",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "dependencies": {
+    "csv-parse": "^4.16.0",
+    "csvtojson": "^2.0.10",
+    "knex": "^0.21.21",
+    "mysql2": "^2.3.0",
+    "unzip-stream": "^0.3.1"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
+  }
+}
