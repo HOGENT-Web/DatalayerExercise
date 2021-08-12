@@ -9,13 +9,29 @@ const main = async () => {
   console.table(departments);
 
   // 2. Get all managers of each department (order by from_date and then to_date)
-  const [managers] = await pool.query(`
+  let [managers] = await pool.query(`
     SELECT *
-    FROM employees e
-      JOIN dept_manager dm ON e.emp_no = dm.emp_no
-        JOIN departments d ON dm.dept_no = d.dept_no
+    FROM departments d
+      JOIN dept_manager dm ON dm.dept_no = d.dept_no
+      JOIN employees e ON e.emp_no = dm.emp_no
+    WHERE to_date > NOW()
     ORDER BY from_date, to_date;
   `);
+  managers = Object.values(managers.reduce((departmentsGrouped, { dept_no, dept_name, from_date, to_date, ...employee }) => {
+    if (!(employee.emp_no in departmentsGrouped)) {
+      departmentsGrouped[dept_no] = {
+        dept_no,
+        dept_name,
+        from_date,
+        to_date,
+        managers: [],
+      };
+    }
+
+    departmentsGrouped[dept_no].managers.push(employee);
+    return departmentsGrouped;
+  }, {}));
+
   console.log('\nEXERCISE 2\n----------');
   console.table(managers);
 

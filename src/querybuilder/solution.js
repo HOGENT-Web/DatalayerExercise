@@ -9,10 +9,26 @@ const main = async () => {
   console.table(departments);
 
   // 2. Get all managers of each department (order by from_date and then to_date)
-  const managers = await knex('employees').select()
-    .join('dept_manager', 'employees.emp_no', '=', 'dept_manager.emp_no')
-    .join('departments', 'dept_manager.dept_no', '=', 'departments.dept_no')
+  let managers = await knex('departments').select()
+    .join('dept_manager', 'dept_manager.dept_no', '=', 'departments.dept_no')
+    .join('employees', 'employees.emp_no', '=', 'dept_manager.emp_no')
+    .where('to_date', '>', knex.raw('NOW()'))
     .orderBy(['from_date', 'to_date']);
+
+  managers = Object.values(managers.reduce((departmentsGrouped, { dept_no, dept_name, from_date, to_date, ...employee }) => {
+    if (!(employee.emp_no in departmentsGrouped)) {
+      departmentsGrouped[dept_no] = {
+        dept_no,
+        dept_name,
+        from_date,
+        to_date,
+        managers: [],
+      };
+    }
+
+    departmentsGrouped[dept_no].managers.push(employee);
+    return departmentsGrouped;
+  }, {}));
   console.log('\nEXERCISE 2\n----------');
   console.table(managers);
 
@@ -25,6 +41,7 @@ const main = async () => {
     .join('departments', 'dept_manager.dept_no', '=', 'departments.dept_no')
     .join('salaries', 'employees.emp_no', '=', 'salaries.emp_no')
     .orderBy('salary');
+
   console.log('\nEXERCISE 3\n----------');
   console.table(salaries);
 
