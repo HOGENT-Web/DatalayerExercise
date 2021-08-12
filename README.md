@@ -18,3 +18,15 @@ Linux/macOS:
 # Update the username and password (-p option WITHOUT parameter!) according to your config
 mysql -u root < employees.sql
 ```
+
+## Exercises
+
+Before getting to the exercises, please have a look at the `examples.js` in each folder. Don't look at the `solution.js` before trying yourself.
+The expected output per exercise can be found in the folder `expected_output`.
+
+You should go through the exercises in this order:
+
+1. manual
+2. querybuilder
+3. orm
+

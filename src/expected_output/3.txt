@@ -1,0 +1,13 @@
+┌─────────┬──────────────────────┬────────┬────────────┬──────────────┬────────┐
+│ (index) │      dept_name       │ emp_no │ first_name │  last_name   │ salary │
+├─────────┼──────────────────────┼────────┼────────────┼──────────────┼────────┤
+│    0    │     'Production'     │ 110420 │  'Oscar'   │  'Ghazalie'  │ 56654  │
+│    1    │  'Customer Service'  │ 111939 │ 'Yuchang'  │  'Weedman'   │ 58745  │
+│    2    │  'Human Resources'   │ 110228 │ 'Karsten'  │  'Sigstam'   │ 65400  │
+│    3    │ 'Quality Management' │ 110854 │   'Dung'   │   'Pesch'    │ 72876  │
+│    4    │    'Development'     │ 110567 │   'Leon'   │  'DasSarma'  │ 74510  │
+│    5    │      'Research'      │ 111534 │  'Hilary'  │   'Kambil'   │ 79393  │
+│    6    │      'Finance'       │ 110114 │  'Isamu'   │ 'Legleitner' │ 83457  │
+│    7    │       'Sales'        │ 111133 │  'Hauke'   │   'Zhang'    │ 101987 │
+│    8    │     'Marketing'      │ 110039 │ 'Vishwani' │  'Minakawa'  │ 106491 │
+└─────────┴──────────────────────┴────────┴────────────┴──────────────┴────────┘
