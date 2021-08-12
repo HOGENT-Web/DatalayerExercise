@@ -22,8 +22,7 @@ mysql -u root < employees.sql
 ## Exercises
 
 Before getting to the exercises, please have a look at the `examples.js` in each folder. Don't look at the `solution.js` before trying yourself.
-The expected output per exercise can be found in the folder `expected_output`.
-
+The expected output per exercise can be found in the folder `expected_output` (per exercise).
 You should go through the exercises in this order:
 
 1. manual
