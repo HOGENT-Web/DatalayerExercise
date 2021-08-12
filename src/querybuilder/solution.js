@@ -31,14 +31,15 @@ const main = async () => {
   }, {}));
   console.log('\nEXERCISE 2\n----------');
   console.table(managers);
+  console.table(managers[0]?.managers);
 
   // 3. Get the salaries of the managers from exercise 2
-  const salaries = await knex('employees')
+  const salaries = await knex('departments')
     .select('dept_name', 'employees.emp_no', 'first_name', 'last_name', 'salary')
     .where('dept_manager.to_date', '>', knex.raw('NOW()'))
     .andWhere('salaries.to_date', '>', knex.raw('NOW()'))
-    .join('dept_manager', 'employees.emp_no', '=', 'dept_manager.emp_no')
-    .join('departments', 'dept_manager.dept_no', '=', 'departments.dept_no')
+    .join('dept_manager', 'dept_manager.dept_no', '=', 'departments.dept_no')
+    .join('employees', 'employees.emp_no', '=', 'dept_manager.emp_no')
     .join('salaries', 'employees.emp_no', '=', 'salaries.emp_no')
     .orderBy('salary');
 

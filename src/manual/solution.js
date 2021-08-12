@@ -34,17 +34,18 @@ const main = async () => {
 
   console.log('\nEXERCISE 2\n----------');
   console.table(managers);
+  console.table(managers[0]?.managers);
 
   // 3. Get the salary for the active manager per department (order by salary)
   const [salaries] = await pool.query(`
     SELECT dept_name, e.emp_no, first_name, last_name, salary
-    FROM employees e
-      JOIN dept_manager dm ON e.emp_no = dm.emp_no
-      JOIN departments d ON dm.dept_no = d.dept_no
+    FROM departments d
+      JOIN dept_manager dm ON dm.dept_no = d.dept_no
+      JOIN employees e ON e.emp_no = dm.emp_no
       JOIN salaries s ON e.emp_no = s.emp_no
     WHERE dm.to_date > NOW()  AND s.to_date > NOW()
     ORDER BY salary;
-`);
+  `);
   console.log('\nEXERCISE 3\n----------');
   console.table(salaries);
 
