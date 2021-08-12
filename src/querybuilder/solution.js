@@ -1,4 +1,4 @@
-const getConnection = require("./_connection");
+const getConnection = require('./_connection');
 
 const main = async () => {
   const knex = await getConnection();
