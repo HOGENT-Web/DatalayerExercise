@@ -13,10 +13,10 @@ const main = async () => {
 
   // 2. Get all managers of each department (order by from_date and then to_date)
   // Note: WHERE and ORDER BY are handled by the relationMapping in the model class (see Department)
-  const managers = []; // TODO: query here
+  const depsWithManagers = []; // TODO: query here
   console.log('\nEXERCISE 2\n----------');
-  console.table(managers);
-  console.table(managers[0]?.managers);
+  console.table(depsWithManagers);
+  console.table(depsWithManagers[0]?.managers);
 
   // 3. Get the salaries of the managers from exercise 2
   // Note: WHERE and ORDER BY are handled by the relationMapping in the model classes (see Department and Employee)
