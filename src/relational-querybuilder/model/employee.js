@@ -20,7 +20,7 @@ class Employee extends Model {
   last_name;
 
   /** @type {'M' | 'F'} */
-  sex;
+  gender;
 
   /** @type {Date} */
   hire_date;

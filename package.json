@@ -13,11 +13,15 @@
     "querybuilder:solution": "node ./src/querybuilder/solution.js",
     "rel-querybuilder:examples": "node ./src/relational-querybuilder/examples.js",
     "rel-querybuilder:exercises": "node ./src/relational-querybuilder/exercises.js",
-    "rel-querybuilder:solution": "node ./src/relational-querybuilder/solution.js"
+    "rel-querybuilder:solution": "node ./src/relational-querybuilder/solution.js",
+    "orm:examples": "node ./src/orm/examples.js",
+    "orm:exercises": "node ./src/orm/exercises.js",
+    "orm:solution": "node ./src/orm/solution.js"
   },
   "dependencies": {
     "knex": "^0.21.21",
     "mysql2": "^2.3.0",
-    "objection": "^2.2.15"
+    "objection": "^2.2.15",
+    "sequelize": "^6.6.5"
   }
 }

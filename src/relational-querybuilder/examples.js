@@ -19,20 +19,20 @@ const main = async () => {
   console.log('\nFound', employeeCount[0].count, 'employees');
   console.log('Raw response', employeeCount);
 
-  // // 3. Get and print the first three employees
+  // 3. Get and print the first three employees
   const firstThree = await Employee.query().select().limit(3);
   console.log('\nFirst three employees:');
   console.table(firstThree);
 
-  // // 4. Get one employee's titles
+  // 4. Get one employee's titles
   const employeeWithTitles = await Employee.query().select()
     .join('titles', 'employees.emp_no', '=', 'titles.emp_no')
     .where('employees.emp_no', 12601);
   console.log('\nTitles of employee with emp_no 12601:');
   console.table(employeeWithTitles);
 
-  // // 5. Fetch all titles per employee with only one object per employee
-  // // -> still needs JS to map results
+  // 5. Fetch all titles per employee with only one object per employee
+  // -> still needs JS to map results
   let employeesWithTitles = await Employee.query().select()
     .withGraphFetched('titles') // See the difference in executed queries with the next solution
     .limit(1000); // for performance reasons
@@ -47,8 +47,8 @@ const main = async () => {
   console.log('\nFirst employee with titles (withGraphJoined):');
   console.dir(employeesWithTitles[0]);
 
-  // // 6. Get all employees' departments
-  // // -> still needs JS to map results
+  // 6. Get all employees' departments
+  // -> still needs JS to map results
   const employeesWithDepartments = await Employee.query().select()
     .withGraphFetched('departments')
     .limit(1000); // for performance reasons
