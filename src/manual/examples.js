@@ -24,8 +24,8 @@ const main = async () => {
     SELECT e.emp_no, first_name, last_name, title
     FROM employees e
       JOIN titles t ON e.emp_no = t.emp_no
-    WHERE e.emp_no = 12601;
-  `);
+    WHERE e.emp_no = ?;
+  `, [12601]);
   console.log('\nTitles of employee with emp_no 12601:');
   console.table(employeeWithTitles);
 
@@ -82,6 +82,16 @@ const main = async () => {
   }, {}));
   console.log('\nFirst employee with departments:');
   console.dir(employees[0]);
+
+  // 7. Add a new employee
+  // Determine the next emp_no
+  const [nextEmpNo] = await pool.query('SELECT MAX(emp_no) + 1 AS emp_no FROM employees');
+  const { emp_no } = nextEmpNo[0];
+  const [insertResult] = await pool.query(`
+    INSERT INTO employees(emp_no, birth_date, first_name, last_name, gender, hire_date)
+    VALUES (?, ?, ?, ?, ?, ?);
+  `, [emp_no, '1997-11-14', 'Thomas', 'Aelbrecht', 'M', '2021-01-01']);
+  console.dir(insertResult);
 
   // Close the connection
   await pool.end();

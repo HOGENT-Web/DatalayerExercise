@@ -81,6 +81,20 @@ const main = async () => {
   console.log('\nFirst employee with departments:');
   console.dir(employees[0]);
 
+  // 7. Add a new employee
+  // Determine the next emp_no
+  const [nextEmpNo] = await knex('employees').select(knex.raw('MAX(emp_no) + 1 AS emp_no'));
+  const { emp_no } = nextEmpNo;
+  const insertResult = await knex('employees').insert({
+    emp_no,
+    birth_date: '1997-11-14',
+    first_name: 'Thomas',
+    last_name: 'Aelbrecht',
+    gender: 'M',
+    hire_date: '2021-01-01',
+  });
+  console.dir(insertResult);
+
   // Close the connection
   await knex.destroy();
 };
