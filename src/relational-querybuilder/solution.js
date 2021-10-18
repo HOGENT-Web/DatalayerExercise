@@ -12,14 +12,14 @@ const main = async () => {
   console.log('EXERCISE 1\n----------');
   console.table(departments);
 
-  // 2. Get all managers of each department (order by from_date and then to_date)
+  // 2. Get all active managers of each department (order by from_date and then to_date)
   const managers = await Department.query().select()
     .withGraphFetched('managers');
   console.log('\nEXERCISE 2\n----------');
   console.table(managers);
   console.table(managers[0]?.managers);
 
-  // 3. Get the salaries of the managers from exercise 2
+  // 3. Get the salary for the active manager per department (order by salary)
   const salaries = await Department.query().select()
     .withGraphFetched('managers')
     .withGraphFetched('managers.salaries');

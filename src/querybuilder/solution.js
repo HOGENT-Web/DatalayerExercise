@@ -8,7 +8,7 @@ const main = async () => {
   console.log('EXERCISE 1\n----------');
   console.table(departments);
 
-  // 2. Get all managers of each department (order by from_date and then to_date)
+  // 2. Get all active managers of each department (order by from_date and then to_date)
   let managers = await knex('departments').select()
     .join('dept_manager', 'dept_manager.dept_no', '=', 'departments.dept_no')
     .join('employees', 'employees.emp_no', '=', 'dept_manager.emp_no')
@@ -33,7 +33,7 @@ const main = async () => {
   console.table(managers);
   console.table(managers[0]?.managers);
 
-  // 3. Get the salaries of the managers from exercise 2
+  // 3. Get the salary for the active manager per department (order by salary)
   const salaries = await knex('departments')
     .select('dept_name', 'employees.emp_no', 'first_name', 'last_name', 'salary')
     .where('dept_manager.to_date', '>', knex.raw('NOW()'))

@@ -9,7 +9,7 @@ const main = async () => {
   console.log('EXERCISE 1\n----------');
   console.table(departments.map((department) => department.toJSON()));
 
-  // 2. Get all managers of each department (order by from_date and then to_date)
+  // 2. Get all active managers of each department (order by from_date and then to_date)
   let depsWithManagers = []; // TODO: query here
   depsWithManagers = depsWithManagers.map((manager) => manager.toJSON());
   console.log('\nEXERCISE 2\n----------');
@@ -17,7 +17,7 @@ const main = async () => {
   console.table(depsWithManagers[0]?.managers);
   console.table(depsWithManagers[0]?.managers[0].DepartmentManager);
 
-  // 3. Get the salaries of the managers from exercise 2
+  // 3. Get the salary for the active manager per department (order by salary)
   let salaries = []; // TODO: query here
   salaries = salaries.map((salary) => salary.toJSON());
   console.log('\nEXERCISE 3\n----------');

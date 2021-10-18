@@ -8,7 +8,7 @@ const main = async () => {
   console.log('EXERCISE 1\n----------');
   console.table(departments);
 
-  // 2. Get all managers of each department (order by from_date and then to_date)
+  // 2. Get all active managers of each department (order by from_date and then to_date)
   let [managers] = await pool.query(`
     SELECT *
     FROM departments d
